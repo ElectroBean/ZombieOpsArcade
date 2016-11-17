@@ -11,7 +11,7 @@ public class EnemyMovement : MonoBehaviour {
     // A reference to the rigidbody component
     private Rigidbody m_Rigidbody;
     // Will be set to true when this tank should follow the player
-    private bool m_Follow;
+    
 
 
     private void Awake()
@@ -19,14 +19,14 @@ public class EnemyMovement : MonoBehaviour {
         m_Player = GameObject.FindGameObjectWithTag("Player");
         m_NavAgent = GetComponent<NavMeshAgent>();
         m_Rigidbody = GetComponent<Rigidbody>();
-        m_Follow = false;
+       
 
     }
     private void OnEnable()
     {
         // when the enemy is turned on, make sure it is not kinematic
         m_Rigidbody.isKinematic = false;
-        m_Follow = true;
+        
     }
     private void OnDisable()
     {
@@ -39,20 +39,21 @@ public class EnemyMovement : MonoBehaviour {
 
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-        if (m_Follow == false)
-            return;
 
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
         if (m_Player == null)
         {
             m_Player = GameObject.FindGameObjectWithTag("Player");
         }
-        // get distance from player to enemy
+        
         float distance = (m_Player.transform.position - transform.position).magnitude;
-        // if distance < closedistance, stop moving
+        
         if (distance > m_CloseDistance)
         {
             m_NavAgent.SetDestination(m_Player.transform.position);

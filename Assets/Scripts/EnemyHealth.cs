@@ -23,23 +23,10 @@ public class EnemyHealth : MonoBehaviour {
 
     private void OnEnable()
     {
-        // when the tank is enabled, reset the tanks health and whether or not it's dead
         m_CurrentHealth = m_StartingHealth;
         m_Dead = false;
         SetHealthUI();
-        if (gameObject.tag != "Player")
-        {
-            // chooses a spawn point randomly between 0 and the length of m_enemySpawns
-            // "int" makes sure that the random function is an integer instead of a float
-            // had to use UnityEngine because "system" has it's own Random function
-            int randomSpawn = (int)UnityEngine.Random.Range(0, m_enemySpawns.Length);
-            // places the tank that the position of the randomly chosen (number) spawn
-            gameObject.transform.position = m_enemySpawns[randomSpawn].transform.position;
-        }
-        else
-        {
-            gameObject.transform.position = mySpawn.transform.position;
-        }
+        
     }
 
     private void SetHealthUI()

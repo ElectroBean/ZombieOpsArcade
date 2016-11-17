@@ -90,6 +90,15 @@ public class ShootingRifle : MonoBehaviour {
     void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 150, 50), "Ammo: " + CurrentAmmo + " /  " + MaxAmmo);
+
+        if (CurrentAmmo == 0 && MaxAmmo != 0)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 10, 150, 50), "Press R to reload");
+        }
+        if (CurrentAmmo == 0 && MaxAmmo == 0)
+        {
+            GUI.Label(new Rect(Screen.width / 2 - 70, Screen.height / 2 - 10, 200, 50), "Out of Ammo, Switch Weapons");
+        }
     }
 
     private void Fire()
