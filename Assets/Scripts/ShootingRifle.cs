@@ -20,8 +20,9 @@ public class ShootingRifle : MonoBehaviour {
     public float MaxCurrent = 30f;
 
     private GameObject weapon;
-    
+    public GameObject SUPERPOWER;
 
+    private GameObject[] rounds;
     // Use this for initialization
     void Awake() {
        
@@ -30,6 +31,7 @@ public class ShootingRifle : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        SUPERPOWER = GameObject.FindGameObjectWithTag("RiflePower");
         if (CurrentAmmo != 0)
         {
 
@@ -84,7 +86,16 @@ public class ShootingRifle : MonoBehaviour {
              m_FireRate -= Time.deltaTime;
          }
 
-        
+         if(SUPERPOWER == null) { 
+        if(GameObject.FindGameObjectsWithTag("Bullets") != null)
+        {
+            rounds = GameObject.FindGameObjectsWithTag("Bullets");
+                for (int i = 0; i < rounds.Length; i++)
+                {
+                    rounds[i].gameObject.GetComponent<BulletScript>().m_MaxDamage = 100;
+                }
+            }
+        }
     }
 
     void OnGUI()

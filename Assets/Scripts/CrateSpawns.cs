@@ -6,11 +6,12 @@ public class CrateSpawns : MonoBehaviour
 
     public GameObject cratePrefab;
     public GameObject[] m_CrateSpawns;
+    public GameObject[] Crates;
 
     // Use this for initialization
     void Start()
     {
-        InvokeRepeating("SpawnEnemy", 10, 10);
+       InvokeRepeating("SpawnEnemy", 10, 10);
     }
 
     // Update is called once per frame

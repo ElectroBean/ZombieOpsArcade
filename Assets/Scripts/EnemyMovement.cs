@@ -4,23 +4,17 @@ using System.Collections;
 public class EnemyMovement : MonoBehaviour {
     // The enemy will stop moving towards the player once it reaches this distance
     public float m_CloseDistance = 0f;
-    // A reference to the player - this will be set when the enemy is loaded
+    // A reference to the player
     private GameObject m_Player;
-    // A reference to the nav mesh agent component
+    // A reference to the nav mesh 
     private NavMeshAgent m_NavAgent;
     // A reference to the rigidbody component
     private Rigidbody m_Rigidbody;
-    // Will be set to true when this tank should follow the player
-    
-
-
     private void Awake()
     {
         m_Player = GameObject.FindGameObjectWithTag("Player");
         m_NavAgent = GetComponent<NavMeshAgent>();
         m_Rigidbody = GetComponent<Rigidbody>();
-       
-
     }
     private void OnEnable()
     {

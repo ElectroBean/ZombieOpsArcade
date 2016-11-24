@@ -12,15 +12,18 @@ public class CharacterMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         cc = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        if(Time.timeScale != 0)
+        {
         cc.Move(Vector3.forward * Input.GetAxis("Vertical") * MoveSpeed + Physics.gravity);
         cc.Move(Vector3.right * Input.GetAxis("Horizontal") * MoveSpeed + Physics.gravity); 
+        }
         mainCamera.transform.position = transform.position + new Vector3(0, 100, 5);
     }
 }
