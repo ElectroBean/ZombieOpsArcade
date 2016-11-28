@@ -36,7 +36,6 @@ public class ShootShotgun : MonoBehaviour
 
             if (Input.GetButton("Fire1") && m_FireRate <= 0)
             {
-                //InvokeRepeating("Fire", 0f, 1f);
                 CurrentAmmo -= 1;
                 Fire();
                 m_FireRate += m_FireSpeed;

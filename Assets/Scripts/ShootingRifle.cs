@@ -20,7 +20,7 @@ public class ShootingRifle : MonoBehaviour {
     public float MaxCurrent = 30f;
 
     private GameObject weapon;
-    public GameObject SUPERPOWER;
+    
 
     private GameObject[] rounds;
     // Use this for initialization
@@ -31,13 +31,15 @@ public class ShootingRifle : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        SUPERPOWER = GameObject.FindGameObjectWithTag("RiflePower");
+        
         if (CurrentAmmo != 0)
         {
-
+            //sees if LMB is pressed and if the firerate is less than or equal to zero
             if (Input.GetButton("Fire1") && m_FireRate <= 0)
             {
-                //InvokeRepeating("Fire", 0f, 1f);
+                //takes 1 bullet away from the ammo counter
+                //calls the instantiation of bullets in the fire script
+                //adds firespeed to firerate so there is time between bullets
                 CurrentAmmo -= 1;
                 Fire();
                 m_FireRate += m_FireSpeed;
@@ -74,30 +76,17 @@ public class ShootingRifle : MonoBehaviour {
                 }
             }
         }
-
-
-        if (Input.GetButtonUp("Fire1"))
-        {
-            CancelInvoke();
-        }
-
+        
          if (m_FireRate >= 0)
          {
+            //if firerate greater than or equal to zero deltaTime is added to it
              m_FireRate -= Time.deltaTime;
          }
 
-         if(SUPERPOWER == null) { 
-        if(GameObject.FindGameObjectsWithTag("Bullets") != null)
-        {
-            rounds = GameObject.FindGameObjectsWithTag("Bullets");
-                for (int i = 0; i < rounds.Length; i++)
-                {
-                    rounds[i].gameObject.GetComponent<BulletScript>().m_MaxDamage = 100;
-                }
-            }
-        }
     }
 
+
+    //puts ammo counter on the gui
     void OnGUI()
     {
         GUI.Label(new Rect(10, 10, 150, 50), "Ammo: " + CurrentAmmo + " /  " + MaxAmmo);
@@ -112,6 +101,8 @@ public class ShootingRifle : MonoBehaviour {
         }
     }
 
+
+    //fires bullets at spawn points with a launch force
     private void Fire()
     {
             Rigidbody bulletInstance = Instantiate(m_Bullet, m_FireSpawn.position, m_FireSpawn.rotation) as Rigidbody;

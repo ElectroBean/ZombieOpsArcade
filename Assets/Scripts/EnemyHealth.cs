@@ -4,8 +4,6 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour {
     // The amount of health each tank starts with
     public float m_StartingHealth = 100f;
-
-    
     
     private float m_CurrentHealth;
     private bool m_Dead;

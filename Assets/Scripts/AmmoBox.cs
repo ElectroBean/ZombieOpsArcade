@@ -25,7 +25,7 @@ public class AmmoBox : MonoBehaviour
 
         if (col.gameObject.tag == "Player" && col.gameObject.GetComponent<SwapWeapons>().weaponNumber == 2)
         {
-            col.gameObject.GetComponentInChildren<ShootShotgun>().MaxAmmo += 6;
+            col.gameObject.GetComponentInChildren<ShootShotgun>().MaxAmmo += 3;
             Destroy(gameObject);
         }
     }

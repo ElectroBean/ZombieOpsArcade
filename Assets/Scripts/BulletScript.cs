@@ -4,10 +4,12 @@ using System.Collections;
 public class BulletScript : MonoBehaviour {
     // The time in seconds before the shell is removed
     private float m_MaxLifeTime = 2f;
-    public float m_MaxDamage = 10f;
+    public float m_MaxDamage = 5f;
+    private GameObject Player;
 
     private void Start()
     {
+        Player = GameObject.FindGameObjectWithTag("Player");
         Destroy(gameObject, m_MaxLifeTime);
     }
 
@@ -34,6 +36,9 @@ public class BulletScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-         
+         if(Player.GetComponent<SwapWeapons>().weaponNumber == 2)
+        {
+            this.m_MaxDamage = 25f;
+        }
     }
 }
