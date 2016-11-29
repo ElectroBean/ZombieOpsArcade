@@ -22,7 +22,7 @@ public class BulletScript : MonoBehaviour {
         if (targetRigidbody != null)
         {
             // find the enemyHealth script associated with the rigidbody
-            EnemyHealth targetHealth = targetRigidbody.GetComponent<EnemyHealth>();
+            ZombieHealth targetHealth = targetRigidbody.GetComponent<ZombieHealth>();
             if (targetHealth != null)
             {
                 float damage = m_MaxDamage;
@@ -39,7 +39,7 @@ public class BulletScript : MonoBehaviour {
         //if the shotgun is out the damage of each bullet will be 25
          if(Player.GetComponent<SwapWeapons>().weaponNumber == 2)
         {
-            this.m_MaxDamage = 25f;
+            this.m_MaxDamage = 100f;
         }
     }
 }

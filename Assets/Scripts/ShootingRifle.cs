@@ -32,7 +32,7 @@ public class ShootingRifle : MonoBehaviour {
     void Update()
     {
         
-        if (CurrentAmmo != 0)
+        if (CurrentAmmo != 0 && Time.timeScale != 0)
         {
             //sees if LMB is pressed and if the firerate is less than or equal to zero
             if (Input.GetButton("Fire1") && m_FireRate <= 0)
@@ -107,8 +107,8 @@ public class ShootingRifle : MonoBehaviour {
     {
             Rigidbody bulletInstance = Instantiate(m_Bullet, m_FireSpawn.position, m_FireSpawn.rotation) as Rigidbody;
             bulletInstance.velocity = m_LaunchForce * m_FireSpawn.forward;
-            Rigidbody bulletInstance2 = Instantiate(m_Bullet, m_FireSpawn2.position, m_FireSpawn.rotation) as Rigidbody;
-            bulletInstance2.velocity = m_LaunchForce * m_FireSpawn.forward;
+           // Rigidbody bulletInstance2 = Instantiate(m_Bullet, m_FireSpawn2.position, m_FireSpawn.rotation) as Rigidbody;
+           // bulletInstance2.velocity = m_LaunchForce * m_FireSpawn.forward;
 
         
     }

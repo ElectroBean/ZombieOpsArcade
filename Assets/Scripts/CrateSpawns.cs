@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class CrateSpawns : MonoBehaviour
 {
@@ -12,7 +13,11 @@ public class CrateSpawns : MonoBehaviour
     void Start()
     {
         //calls the SpawnEnemy function after 10 seconds, then again every 10 seconds
-       InvokeRepeating("SpawnEnemy", 10, 10);
+        if(SceneManager.GetActiveScene().name == "Prototype_1")
+        {
+            InvokeRepeating("SpawnEnemy", 10, 10);
+        }
+       
     }
 
     // Update is called once per frame

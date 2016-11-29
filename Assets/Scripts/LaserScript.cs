@@ -52,7 +52,7 @@ public class LaserScript : MonoBehaviour {
                 if(hit.rigidbody.gameObject.tag == "Enemy")
                 {
                     //if "hit" has the tag "Enemy", finds the EnemyHealth script and makes it take damage
-                    hit.rigidbody.gameObject.GetComponent<EnemyHealth>().TakeDamage(0.8f);
+                    hit.rigidbody.gameObject.GetComponent<ZombieHealth>().TakeDamage(0.8f);
                 }
                 
             }

@@ -9,6 +9,9 @@ public class CharacterMovement : MonoBehaviour
     public float RotateSpeed = 1f;
     public float jumpSpeed = 8.0F;
     public float gravity = 20f;
+    public Animation anim;
+    private Vector3 lastPosition;
+    public bool dead;
     
     //FPS mode moveSpeed
     public float fpsSpeed = 15f;
@@ -19,22 +22,30 @@ public class CharacterMovement : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animation>();
         cc = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        dead = GetComponent<PlayerHealth>().m_Dead;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         
         if(SceneManager.GetActiveScene().name == "Prototype_1")
         {
            mainCamera.transform.position = transform.position + new Vector3(0, 100, 5);
-            if (Time.timeScale != 0)
+            if (Time.timeScale != 0 && dead == false)
                 {
                     cc.Move(Vector3.forward * Input.GetAxis("Vertical") * MoveSpeed + Physics.gravity);
-                    cc.Move(Vector3.right * Input.GetAxis("Horizontal") * MoveSpeed + Physics.gravity); 
+                    cc.Move(Vector3.right * Input.GetAxis("Horizontal") * MoveSpeed + Physics.gravity);
+                    anim.Play("soldierRun");
                 }
+            if(lastPosition == gameObject.transform.position && dead == false)
+            {
+                anim.Play("soldierIdle");
+            }
+            lastPosition = gameObject.transform.position;
         }
 
         if (SceneManager.GetActiveScene().name == "Prototype_1 - FPS")

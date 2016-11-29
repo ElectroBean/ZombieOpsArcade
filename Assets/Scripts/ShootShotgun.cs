@@ -34,7 +34,7 @@ public class ShootShotgun : MonoBehaviour
         if (CurrentAmmo != 0)
         {
 
-            if (Input.GetButton("Fire1") && m_FireRate <= 0)
+            if (Input.GetButton("Fire1") && m_FireRate <= 0 && Time.timeScale != 0)
             {
                 CurrentAmmo -= 1;
                 Fire();
