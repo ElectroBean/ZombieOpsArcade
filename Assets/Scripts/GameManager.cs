@@ -81,6 +81,8 @@ public class GameManager : MonoBehaviour
         Title.SetActive(true);
         Guide.gameObject.SetActive(true);
         NewGame.gameObject.SetActive(true);
+
+        //checks to see if the current scene name is Prototype_1
         if (SceneManager.GetActiveScene().name == "Prototype_1")
         {
             Instantiate(m_PlayerPrefab, PlayerSpawn.transform.position, PlayerSpawn.transform.rotation);
@@ -105,6 +107,7 @@ public class GameManager : MonoBehaviour
                 m_TimerText.gameObject.SetActive(false);
                 Points.currentPoints = 0;
 
+                // defines the code
                 cheatCode = new string[] { "up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "return" };
                 index = 0;
                 break;
@@ -152,6 +155,7 @@ public class GameManager : MonoBehaviour
                 // the entire code was correctly entered
                 if (index == cheatCode.Length)
                 {
+                    //returns the index to 0 and loads the fps scene
                     index = 0;
                     SceneManager.LoadScene("Prototype_1 - FPS");
                 }
@@ -218,6 +222,7 @@ public class GameManager : MonoBehaviour
         }
     }
     
+    //called when guide button is pressed
     public void OnGuide()
     {
         Title.SetActive(false);
@@ -259,6 +264,7 @@ public class GameManager : MonoBehaviour
         Points.currentPoints = 0;
         if (SceneManager.GetActiveScene().name == "Prototype_1 - FPS")
         {
+            //locks the cursor and makes it invisible
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

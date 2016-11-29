@@ -9,6 +9,8 @@ public class CharacterMovement : MonoBehaviour
     public float RotateSpeed = 1f;
     public float jumpSpeed = 8.0F;
     public float gravity = 20f;
+    
+    //FPS mode moveSpeed
     public float fpsSpeed = 15f;
     CharacterController cc;
     private Vector3 moveDirection = Vector3.zero;
@@ -39,6 +41,7 @@ public class CharacterMovement : MonoBehaviour
         {
             //fps movement
             CharacterController controller = GetComponent<CharacterController>();
+            //makes sure the characte was on the ground
             if (controller.isGrounded)
             {
                 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -54,8 +57,3 @@ public class CharacterMovement : MonoBehaviour
     }
 }
 
-
-        // rotate the character according to left/right key presses
-        //transform.Rotate(Vector3.up* Input.GetAxis("Horizontal") * RotateSpeed);
-        // move forward/backward according to up/down key presses
-        //cc.Move(transform.forward* Input.GetAxis("Vertical") * MoveSpeed + Physics.gravity);

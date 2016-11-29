@@ -10,6 +10,7 @@ public class SwapWeapons : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        //sets active weapon to the rifle
         Shotgun.SetActive(false);
         Rifle.SetActive(true);
         weaponNumber = 1;
@@ -21,6 +22,7 @@ public class SwapWeapons : MonoBehaviour {
         {
             Rifle.SetActive(true);
             Shotgun.SetActive(false);
+            //sets a public variable for other scripts to use
             weaponNumber = 1;
         }
 
@@ -28,6 +30,7 @@ public class SwapWeapons : MonoBehaviour {
         {
             Rifle.SetActive(false);
             Shotgun.SetActive(true);
+            //sets a public variable for other scripts to use
             weaponNumber = 2;
         }
 	}

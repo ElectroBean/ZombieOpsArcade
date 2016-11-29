@@ -55,6 +55,7 @@ public class EnemyMovement : MonoBehaviour {
         }
         else
         {
+            //if distance < m_CloseDistance, stops the navagent
             m_NavAgent.Stop();
         }
     }

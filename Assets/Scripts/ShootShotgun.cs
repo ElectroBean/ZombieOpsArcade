@@ -67,6 +67,7 @@ public class ShootShotgun : MonoBehaviour
                         MaxAmmo = MaxAmmo - difference;
                     }
                     else
+                        //if the difference is greater than the MaxAmmo sets the MaxAmmo to zero
                         MaxAmmo = 0;
 
                 }

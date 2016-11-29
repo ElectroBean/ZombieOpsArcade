@@ -42,6 +42,7 @@ public class Door : MonoBehaviour
 
     void OnCollisionStay(Collision Col)
     {
+        //if the tag of the door is "door1" disable the door and activate Spawn2
         if (gameObject.tag == "door1")
         {
             if (Col.gameObject.tag == "Player")
@@ -60,6 +61,7 @@ public class Door : MonoBehaviour
                 }
             }
         }
+        //if the tag of the door is "door2" disable the door and activate Spawn3
         if (gameObject.tag == "door2")
         {
             if (Col.gameObject.tag == "Player")
@@ -78,6 +80,7 @@ public class Door : MonoBehaviour
                 }
             }
         }
+        //if the tag of the door is "door3" disable the door and activate Spawn4
         if (gameObject.tag == "door3")
         {
             if (Col.gameObject.tag == "Player")

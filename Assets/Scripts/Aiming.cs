@@ -21,12 +21,7 @@ public class Aiming : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //RaycastHit hit;
-        //if (Physics.Raycast(ray, out hit, Mathf.Infinity, m_LayerMask))
-        //{
-        //    transform.LookAt(hit.point);
-        //}
+        //top down shooter aiming using ray cast to ground
         if(SceneManager.GetActiveScene().name == "Prototype_1")
         {
             if(Camera.main != null)
@@ -44,6 +39,8 @@ public class Aiming : MonoBehaviour
                   }
         }
 
+
+        //if the scene name is Prototype_1 - fps, the aiming changes to fps aiming
         if(SceneManager.GetActiveScene().name == "Prototype_1 - FPS") {
             if (axes == RotationAxes.MouseXAndY)
         {
@@ -65,7 +62,7 @@ public class Aiming : MonoBehaviour
 
             transform.localEulerAngles = new Vector3(-rotationY, transform.localEulerAngles.y, 0);
         } }
-        //fps aiming
+        
         
 
 

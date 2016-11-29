@@ -11,6 +11,7 @@ public class CrateSpawns : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //calls the SpawnEnemy function after 10 seconds, then again every 10 seconds
        InvokeRepeating("SpawnEnemy", 10, 10);
     }
 

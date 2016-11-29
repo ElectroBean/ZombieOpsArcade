@@ -79,7 +79,7 @@ public class ShootingRifle : MonoBehaviour {
         
          if (m_FireRate >= 0)
          {
-            //if firerate greater than or equal to zero deltaTime is added to it
+            //if firerate is greater than or equal to zero deltaTime is added to it
              m_FireRate -= Time.deltaTime;
          }
 

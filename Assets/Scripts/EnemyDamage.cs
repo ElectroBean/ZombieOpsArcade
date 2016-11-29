@@ -15,6 +15,7 @@ public class EnemyDamage : MonoBehaviour {
 	
 	}
 
+    //while the player and enemy stay 
     void OnCollisionStay(Collision col)
     {
         

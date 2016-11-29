@@ -36,10 +36,6 @@ public class EnemyHealth : MonoBehaviour {
     {
         //reduce current health by the amount of damage done.
         m_CurrentHealth -= amount;
-
-        //change the UI elements appropriately
-        SetHealthUI();
-
         //if the current health is at or beloq zero and it has not yet been registered, call OnDeath.
         if (m_CurrentHealth <= 0f && !m_Dead)
         {
@@ -53,7 +49,6 @@ public class EnemyHealth : MonoBehaviour {
         m_Dead = true;
         // Adds 100 points to player score - Angus
         Points.currentPoints += 100;
-        
         Destroy(gameObject);
     }
 

@@ -36,6 +36,7 @@ public class BulletScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        //if the shotgun is out the damage of each bullet will be 25
          if(Player.GetComponent<SwapWeapons>().weaponNumber == 2)
         {
             this.m_MaxDamage = 25f;
