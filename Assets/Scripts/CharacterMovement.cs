@@ -17,7 +17,6 @@ public class CharacterMovement : MonoBehaviour
     public float fpsSpeed = 15f;
     CharacterController cc;
     private Vector3 moveDirection = Vector3.zero;
-
     
     // Use this for initialization
     void Start()
@@ -31,6 +30,7 @@ public class CharacterMovement : MonoBehaviour
     {
         dead = GetComponent<PlayerHealth>().m_Dead;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        
         
         if(SceneManager.GetActiveScene().name == "Prototype_1")
         {

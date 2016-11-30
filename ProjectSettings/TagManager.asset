@@ -20,6 +20,16 @@ TagManager:
   - door1
   - door2
   - door3
+  - myHealth
+  - health
+  - Canvas
+  - shotgunSound
+  - rifleSound
+  - reloadSound
+  - playerHit
+  - laserSound
+  - zombieDie
+  - GoT
   layers:
   - Default
   - TransparentFX

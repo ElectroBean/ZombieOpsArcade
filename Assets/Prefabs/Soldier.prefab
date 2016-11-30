@@ -971,7 +971,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010444958702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -16.156538, y: 4.0313143e-16, z: -97.621704}
+  m_LocalPosition: {x: -24.54741, y: 3.232693e-16, z: -83.235016}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -1774,6 +1774,7 @@ MonoBehaviour:
   MaxAmmo: 6
   CurrentAmmo: 6
   MaxCurrent: 6
+  aud: {fileID: 0}
 --- !u!114 &114000011789084346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1789,6 +1790,7 @@ MonoBehaviour:
   MaxHealth: 100
   anim: {fileID: 0}
   m_Dead: 0
+  healthBar: {fileID: 0}
 --- !u!114 &114000012774426648
 MonoBehaviour:
   m_ObjectHideFlags: 1

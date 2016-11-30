@@ -17,10 +17,6 @@ public class AmmoBox : MonoBehaviour
 
     void OnCollisionEnter(Collision col)
     {
-        if(col.gameObject.tag == "Player")
-        {
-            Debug.Log("col");
-        }
         if (col.gameObject.tag == "Player" && col.gameObject.GetComponent<SwapWeapons>().weaponNumber == 1)
         {
             col.gameObject.GetComponentInChildren<ShootingRifle>().MaxAmmo += 20;

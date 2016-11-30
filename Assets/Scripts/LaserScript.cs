@@ -4,9 +4,11 @@ using System.Collections;
 public class LaserScript : MonoBehaviour {
 
     LineRenderer line;
-    
+    private AudioSource aud;
+
 	void Start ()
     {
+        aud = GameObject.FindGameObjectWithTag("laserSound").GetComponent<AudioSource>();
         //gets the linerenderer component on the weapon
         line = gameObject.GetComponent<LineRenderer>();
         //turns the renderer off
@@ -22,9 +24,14 @@ public class LaserScript : MonoBehaviour {
         {
             if (Input.GetButtonDown("Fire1"))
             {
+                aud.Play();
                 StopCoroutine("FireLaser");
                 StartCoroutine("FireLaser");
             }
+        }
+        if (Input.GetButtonUp("Fire1"))
+        {
+            aud.Stop();
         }
 	}
 

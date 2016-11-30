@@ -18,14 +18,14 @@ public class ShootingRifle : MonoBehaviour {
     public float CurrentAmmo = 30f;
 
     public float MaxCurrent = 30f;
-
-    private GameObject weapon;
-    
+    public AudioSource aud;
+    public AudioSource aud2;
 
     private GameObject[] rounds;
     // Use this for initialization
     void Awake() {
-       
+        aud = GameObject.FindGameObjectWithTag("rifleSound").GetComponent<AudioSource>();
+        aud2 = GameObject.FindGameObjectWithTag("reloadSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +42,7 @@ public class ShootingRifle : MonoBehaviour {
                 //adds firespeed to firerate so there is time between bullets
                 CurrentAmmo -= 1;
                 Fire();
+                aud.Play();
                 m_FireRate += m_FireSpeed;
             }
         }
@@ -57,6 +58,7 @@ public class ShootingRifle : MonoBehaviour {
                 // ensures you can only reload when the amount of ammo you have is not equal to that of the max you can have
                 if (CurrentAmmo != MaxCurrent)
                 {
+                    aud2.Play();
                     //determines if ammo in stock is greater than or equal to the difference between maxcurrent and totalcurrent
                     if (MaxAmmo >= difference)
                     {

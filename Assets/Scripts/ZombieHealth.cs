@@ -15,6 +15,8 @@ public class ZombieHealth : MonoBehaviour {
     public string[] cheatCode;
     private Collider col;
     private Rigidbody rig;
+    
+    
 
     private void Awake()
     {
@@ -23,6 +25,7 @@ public class ZombieHealth : MonoBehaviour {
         anim = GetComponent<Animator>();
         rig = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
+        
     }
 
     private void OnEnable()
@@ -47,6 +50,7 @@ public class ZombieHealth : MonoBehaviour {
 
     private void OnDeath()
     {
+
         //set the flag so that this function is only called once.
         m_Dead = true;
         // Adds 100 points to player score - Angus
@@ -66,6 +70,7 @@ public class ZombieHealth : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        
         rig = GetComponent<Rigidbody>();
         col = GetComponent<Collider>();
         //cheat code 

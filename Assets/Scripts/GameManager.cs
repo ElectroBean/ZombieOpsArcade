@@ -36,8 +36,12 @@ public class GameManager : MonoBehaviour
     public Button m_NewGame;
     private string[] cheatCode;
     private int index;
+    private string[] cheatCode2;
+    private int index2;
     public Button returnNormal;
     public Button Exit;
+    public GameObject health;
+    public AudioSource aud;
 
     private float m_gameTime = 0;
     public float GameTime { get { return m_gameTime; } }
@@ -52,6 +56,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        aud = GameObject.FindGameObjectWithTag("GoT").GetComponent<AudioSource>();
+        health = GameObject.FindGameObjectWithTag("myHealth");
         m_NewGame.gameObject.SetActive(false);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -71,7 +77,7 @@ public class GameManager : MonoBehaviour
     {
         Scene scene = SceneManager.GetActiveScene();
         Debug.Log("active scene is: " + scene.name + ".");
-
+        health.SetActive(false);
         Pause.gameObject.SetActive(false);
         MainCamera.SetActive(false);
         MenuCamera.SetActive(true);
@@ -110,12 +116,15 @@ public class GameManager : MonoBehaviour
                 // defines the code
                 cheatCode = new string[] { "up", "up", "down", "down", "left", "right", "left", "right", "b", "a", "return" };
                 index = 0;
+                cheatCode2 = new string[] { "v", "a", "l", "a", "r", "m", "o", "r", "g", "h", "u", "l", "i", "s" };
+                index2 = 0;
                 break;
 
             case GameState.Playing:
                 enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 ammoBoxes = GameObject.FindGameObjectsWithTag("ammo");
-               
+
+                health.SetActive(true);
                 Exit.gameObject.SetActive(false);
                 if (SceneManager.GetActiveScene().name == "Prototype_1")
                 Pause.gameObject.SetActive(true);
@@ -159,7 +168,30 @@ public class GameManager : MonoBehaviour
                     index = 0;
                     SceneManager.LoadScene("Prototype_1 - FPS");
                 }
-                
+
+                if (Input.anyKeyDown)
+                {
+                    // Check if the next key in the code is pressed
+                    if (Input.GetKeyDown(cheatCode2[index2]))
+                    {
+                        // Add 1 to index to check the next key in the code
+                        index2++;
+                    }
+                    // if wrong key is entered, reset the code
+                    else
+                    {
+                        index2 = 0;
+                    }
+                }
+                // If index reaches the length of the cheatCode string, 
+                // the entire code was correctly entered
+                if (index2 == cheatCode2.Length)
+                {
+                    //returns the index to 0 and loads the fps scene
+                    index2 = 0;
+                    aud.Play();
+                }
+
 
 
                 if (Input.GetMouseButton(1))
@@ -190,7 +222,8 @@ public class GameManager : MonoBehaviour
                 m_NewGame.gameObject.SetActive(true);
                 Menu.gameObject.SetActive(false);
                 Pause.gameObject.SetActive(false);
-               
+                health.SetActive(false);
+
                 break;
         }
 
@@ -203,6 +236,7 @@ public class GameManager : MonoBehaviour
                 Menu.gameObject.SetActive(true);
                 resume.gameObject.SetActive(true);
                 Time.timeScale = 0;
+                health.SetActive(false);
             }
         }
     }
@@ -332,18 +366,25 @@ public class GameManager : MonoBehaviour
         Pause.gameObject.SetActive(false);
         resume.gameObject.SetActive(true);
         Time.timeScale = 0;
+        health.SetActive(false);
     }
 
     public void onResume()
     {
         if(SceneManager.GetActiveScene().name == "Prototype_1")
-        Pause.gameObject.SetActive(true);
-        resume.gameObject.SetActive(false);
+        {
+            Pause.gameObject.SetActive(true);
+            resume.gameObject.SetActive(false);
+            health.SetActive(false);
+        }
 
-        if(SceneManager.GetActiveScene().name == "Prototype_1 - FPS")
+        if (SceneManager.GetActiveScene().name == "Prototype_1 - FPS")
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            health.SetActive(true);
+            resume.gameObject.SetActive(false);
+            Menu.gameObject.SetActive(false);
         }
 
         Time.timeScale = 1;
