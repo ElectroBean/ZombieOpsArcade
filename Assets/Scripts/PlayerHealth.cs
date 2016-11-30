@@ -34,7 +34,10 @@ public class PlayerHealth : MonoBehaviour {
     private void OnDeath()
     {
         m_Dead = true;
-        anim.Play("soldierDieFront");
+        if(anim != null)
+        {
+            anim.Play("soldierDieFront");
+        }
     }
 
     void OnGUI()

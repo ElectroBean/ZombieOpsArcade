@@ -52,6 +52,7 @@ public class ZombieHealth : MonoBehaviour {
         // Adds 100 points to player score - Angus
         Points.currentPoints += 100;
         anim.Play("back_fall");
+        Destroy(gameObject, 10);
         
     }
     // Use this for initialization
