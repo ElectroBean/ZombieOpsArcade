@@ -90,6 +90,8 @@ public class ZombieHealth : MonoBehaviour {
         {
             //returns the index to 0
             index = 0;
+
+            //makes all enemies alive again with full health, and re-enables rigidbody and collider
             m_Dead = false;
             m_CurrentHealth = m_StartingHealth;
             col.enabled = true;

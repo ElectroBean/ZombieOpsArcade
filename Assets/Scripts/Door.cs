@@ -47,8 +47,10 @@ public class Door : MonoBehaviour
         {
             if (Col.gameObject.tag == "Player")
             {
+                //current points needs to be greater than 100
                 if (Points.currentPoints >= 100)
                 {
+                    //pressing e while in the collision box will deactivate the door 
                     if (Input.GetButtonUp("e"))
                     {
                         Points.currentPoints -= 100;
@@ -66,8 +68,10 @@ public class Door : MonoBehaviour
         {
             if (Col.gameObject.tag == "Player")
             {
+                //current points needs to be greater than 100
                 if (Points.currentPoints >= 100)
                 {
+                    //pressing e while in the collision box will deactivate the door 
                     if (Input.GetButtonUp("e"))
                     {
                         Points.currentPoints -= 100;
@@ -85,8 +89,10 @@ public class Door : MonoBehaviour
         {
             if (Col.gameObject.tag == "Player")
             {
+                //current points needs to be greater than 100
                 if (Points.currentPoints >= 100)
                 {
+                    //pressing e while in the collision box will deactivate the door 
                     if (Input.GetButtonUp("e"))
                     {
                         Points.currentPoints -= 100;
