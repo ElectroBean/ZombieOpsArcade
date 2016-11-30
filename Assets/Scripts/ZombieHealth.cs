@@ -57,6 +57,7 @@ public class ZombieHealth : MonoBehaviour {
         Points.currentPoints += 100;
         anim.Play("back_fall");
         Destroy(gameObject, 10);
+        gameObject.GetComponent<ZombieDamage>().attacking = false;
         
     }
     // Use this for initialization
