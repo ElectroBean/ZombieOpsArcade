@@ -1748,7 +1748,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
-  MoveSpeed: 0.4
+  MoveSpeed: 50
   RotateSpeed: 1
   jumpSpeed: 8
   gravity: 20
@@ -1775,6 +1775,7 @@ MonoBehaviour:
   CurrentAmmo: 6
   MaxCurrent: 6
   aud: {fileID: 0}
+  aud2: {fileID: 0}
 --- !u!114 &114000011789084346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1791,6 +1792,8 @@ MonoBehaviour:
   anim: {fileID: 0}
   m_Dead: 0
   healthBar: {fileID: 0}
+  aud: {fileID: 0}
+  hasPlayed: 0
 --- !u!114 &114000012774426648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1842,6 +1845,8 @@ MonoBehaviour:
   MaxAmmo: 30
   CurrentAmmo: 30
   MaxCurrent: 30
+  aud: {fileID: 0}
+  aud2: {fileID: 0}
 --- !u!137 &137000011108230730
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
