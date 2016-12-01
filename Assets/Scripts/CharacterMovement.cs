@@ -37,8 +37,8 @@ public class CharacterMovement : MonoBehaviour
            mainCamera.transform.position = transform.position + new Vector3(0, 100, 5);
             if (Time.timeScale != 0 && dead == false)
                 {
-                    cc.Move(Vector3.forward * Input.GetAxis("Vertical") * MoveSpeed + Physics.gravity);
-                    cc.Move(Vector3.right * Input.GetAxis("Horizontal") * MoveSpeed + Physics.gravity);
+                    cc.Move((Vector3.forward * Input.GetAxis("Vertical") * MoveSpeed + Physics.gravity)*Time.deltaTime);
+                    cc.Move((Vector3.right * Input.GetAxis("Horizontal") * MoveSpeed + Physics.gravity)*Time.deltaTime);
                     anim.Play("soldierRun");
                 }
             if(lastPosition == gameObject.transform.position && dead == false)

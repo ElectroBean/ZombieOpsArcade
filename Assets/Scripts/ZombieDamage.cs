@@ -4,7 +4,7 @@ using System.Collections;
 public class ZombieDamage : MonoBehaviour {
 
     public Animator anim;
-    private bool attacking;
+    public bool attacking;
 
     // Use this for initialization
     void Start()
